@@ -46,5 +46,11 @@ public class HeroTest{
         Hero myHero = new Hero("Superman",30, "Extreme might","Ladies");
         assertEquals(1, myHero.getId());
     }
+    @Test 
+    public void find_returnsHeroWithSmeId_secondHero() {
+        Hero firstHero = new Hero("Superman",30, "Extreme might","Ladies");
+        Task secondHero = new Hero("Batman",35, "Fast car", "Sleep");
+        assertEquals(Hero.find(secondHero.getId()), secondHero);
+    }
 
 }
