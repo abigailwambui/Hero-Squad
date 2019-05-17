@@ -47,5 +47,13 @@ public class App {
            model.put("template", "templates/heroes.vtl");
            return new ModelAndView(model, layout);
        }, new VelocityTemplateEngine());
+
+       get("/heroes/:id", (request, response) -> {
+            HashMap<String, Object> model = new HashMap<String, Object>();
+            Hero hero = Hero.find(Integer.parseInt(request.params(":id")));
+            model.put("hero", hero);
+            model.put("template", "templates/hero.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
