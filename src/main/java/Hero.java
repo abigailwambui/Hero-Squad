@@ -8,6 +8,7 @@ public class Hero{
     private String mPower;
     private String mWeakness;
     private static List<Hero> instances = new ArrayList<Hero> ();
+    private int mId;
 
     public Hero(String name, Integer age, String power, String weakness) {
         mName = name;
@@ -15,6 +16,7 @@ public class Hero{
         mPower = power;
         mWeakness = weakness;
         instances.add(this);
+        mId = instances.size();
     }
     public String getName(){
         return mName;
@@ -33,5 +35,8 @@ public class Hero{
     }
     public static void clear() {
         instances.clear();
+    }
+    public int getId() {
+        return mId;
     }
 }

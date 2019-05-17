@@ -40,6 +40,11 @@ public class HeroTest{
         Hero.clear();
         assertEquals(Hero.all().size(), 0);
     }
-
+    @Test 
+    public void getId_heroesInstantiateWithAnID_1() {
+        Hero.clear(); 
+        Hero myHero = new Hero("Superman",30, "Extreme might","Ladies");
+        assertEquals(1, myHero.getId());
+    }
 
 }
