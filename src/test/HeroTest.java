@@ -34,5 +34,12 @@ public class HeroTest{
         assertEquals(true, Hero.all().contains(firstHero));
         assertEquals(true, Hero.all().contains(secondHero));
     }
+    @Test 
+    public void clear_emptiesAllHeroesFromArrayList_0() {
+        Hero myHero = new Hero("Superman",30, "Extreme might","Ladies");
+        Hero.clear();
+        assertEquals(Hero.all().size(), 0);
+    }
+
 
 }
