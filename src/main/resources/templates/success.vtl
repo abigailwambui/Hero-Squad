@@ -1,7 +1,6 @@
-<h1>Success</h2>
-<a href="/">Go back</a>
+<h1>You have successfully added a hero!</h2>
 
- #foreach ($hero in $hero)
+    #foreach ($hero in $hero)
 <h1>$hero.getName()</h1>
 <hr>
 <h3>$hero.getAge()</h3>
@@ -11,3 +10,5 @@
 <br>
 <h3>$hero.getWeakness()</h3>
 #end
+<br><br><br>
+<a href="/">Go back</a>
