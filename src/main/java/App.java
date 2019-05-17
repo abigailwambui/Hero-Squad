@@ -3,6 +3,7 @@ import java.util.HashMap;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
@@ -23,20 +24,18 @@ public class App {
 
         post("/success", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            ArrayList<Resume> resume = request.session().attribute("resume");
-            if (resume == null) {
-                resume = new ArrayList<Resume>();
-                request.session().attribute("resume", resume);
+            ArrayList<Hero> hero = request.session().attribute("hero");
+            if (hero == null) {
+                hero = new ArrayList<Hero>();
+                request.session().attribute("hero", hero);
             }
-            String title = request.queryParams("title");
-            String company = request.queryParams("company");
-            String location = request.queryParams("location");
-            String description = request.queryParams("description");
-            String date = request.queryParams("date");
-            String end = request.queryParams("end");
-            Resume newResume = new Resume(title, company, location, description, date, end);
-            resume.add(newResume);
-            model.put("resume", request.session().attribute("resume"));
+            String name = request.queryParams("name");
+            Integer age = Integer.parseInt(request.queryParams("age"));
+            String power = request.queryParams("power");
+            String weakness = request.queryParams("weakness");
+            Hero newHero = new Hero(name, age, power, weakness);
+            hero.add(newHero);
+            model.put("hero", request.session().attribute("hero"));
             model.put("template","templates/success.vtl");
             
             return new ModelAndView(model, layout);
