@@ -4,12 +4,12 @@ import static org.junit.Assert.*;
 public class HeroTest{
     @Test 
     public void hero_instantiatesCorrectly_true() {
-        Hero hero = new Hero("Superman","30", "Extreme might","Ladies");
+        Hero hero = new Hero("Superman",30, "Extreme might","Ladies");
         assertEquals(true, hero instanceof Hero);
     }
     @Test 
     public void hero_instantiatesWithName_String() {
-        Hero hero = new Hero("Superman","30", "Extreme might","Ladies");
+        Hero hero = new Hero("Superman",30, "Extreme might","Ladies");
         assertEquals("Superman", hero.getName());
     }
     @Test 
@@ -22,9 +22,17 @@ public class HeroTest{
         Hero hero = new Hero("Superman", 30, "Extreme might","Ladies");
         assertEquals("Extreme might", hero.getPower());
     }
-     @Test 
+    @Test 
     public void hero_instantiatesWithWeakness_String() {
         Hero hero = new Hero("Superman", 30, "Extreme might","Ladies");
         assertEquals("Ladies", hero.getWeakness());
     }
+    @Test 
+    public void all_returnsAllInstancesOfHero_true() {
+        Hero firstHero = new Hero("Superman",30, "Extreme might","Ladies");
+        Hero secondTask = new Task("Batman",35, "Fast car", "Sleep");
+        assertEquals(true, Hero.all().contains(firstHero));
+        assertEquals(true, Hero.all().contains(secondHero));
+    }
+
 }
