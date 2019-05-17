@@ -11,22 +11,27 @@ apply plugin: 'java'
 
 // Apply the application plugin to add support for building an application
 apply plugin: 'application'
+archivesBaseName = "hero-squad"
+version = '1.0'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
-    compile 'com.google.guava:guava:23.0'
+    compile group: 'com.sparkjava', name: 'spark-core', version: '2.3'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+    compile group: 'org.apache.velocity', name: 'velocity', version: '1.7'
 
     // Use JUnit test framework
-    testCompile 'junit:junit:4.12'
+    
 }
 
 // Define the main class for the application
 mainClassName = 'App'
+
 
