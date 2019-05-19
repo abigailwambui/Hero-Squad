@@ -1,0 +1,11 @@
+.index{
+    background-image: url("../images/image2.jpg");
+}
+.jumbotron{
+    background-color: brown;
+    align-content: center;
+}
+.well{
+    background-color: brown;
+    text-align: center;
+}
