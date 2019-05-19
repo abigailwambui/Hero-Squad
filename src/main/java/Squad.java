@@ -5,12 +5,13 @@ public class Squad {
     private String mName;
     private String mSize;
     private String mCause;
-
+    private static List<Squad> instances = new ArrayList<Squad>();
 
     public Squad(String name, String size, String cause) {
         mName = name;
         mSize = size;
         mCause = cause;
+        instances.add(this);
 }
 
 public String getName(){
@@ -21,5 +22,8 @@ public String getSize(){
 }
 public String getCause(){
     return mCause;
+}
+public static List<Squad> all() {
+        return instances;
 }
 }

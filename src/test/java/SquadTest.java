@@ -23,4 +23,11 @@ public class SquadTest {
         Squad squad = new Squad("PowerPuff Girls", "30", "Fight for Equality");
         assertEquals("Fight for Equality", squad.getCause());
     }
+    @Test 
+    public void all_returnsAllInstancesOfSquad_true() {
+        Squad firstSquad = new Squad("PowerPuff Girls", "30", "Fight for Equality");
+        Squad secondSquad = new Squad("Famous Five", "5", "Speak up for Children Rights");
+        assertEquals(true, Squad.all().contains(firstSquad));
+        assertEquals(true, Squad.all().contains(secondSquad));
+    }
 }
