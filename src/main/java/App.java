@@ -82,10 +82,17 @@ public class App {
         
         get("/squads", (request,response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            model.put("categories", Category.all());
-            model.put("template", "templates/categories.vtl");
+            model.put("squads", Squad.all());
+            model.put("template", "templates/squads.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
     
+        get("/squads/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Squad squad = Squad.find(Integer.parseInt(request.params(":id")));
+            model.put("squad", squad);
+            model.put("template", "templates/squad.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
