@@ -61,12 +61,31 @@ public class App {
             model.put("template", "templates/squad-form.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
-    }
-        post("/categories", (request, response) -> {
+
+        post("/squads", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Squad> squad = request.session().attribute("squad");
+            if (squad == null) {
+                squad = new ArrayList<Squad>();
+                request.session().attribute("squad", squad);
+            }
             String name = request.queryParams("name");
-            Category newCategory = new Category(name);
-            model.put("template", "templates/category-success.vtl");
+            String size = request.queryParams("size");
+            String cause = request.queryParams("cause");
+            Squad newSquad = new Squad(name, size, cause);
+            squad.add(newSquad);
+            model.put("squad", request.session().attribute("squad"));
+            model.put("template","templates/squad-success.vtl");
+            
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+        
+        get("/squads", (request,response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            model.put("categories", Category.all());
+            model.put("template", "templates/categories.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+    
+    }
 }
