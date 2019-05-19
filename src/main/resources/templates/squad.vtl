@@ -1,0 +1,13 @@
+#if ($squad)
+  <h1>$squad.getName() heroes:</h1>
+  <ul>
+    #foreach($hero in $squad.getheroes())
+     <li><a href="/heroes/$hero.getId()">$hero.getName()</a></li>
+    #end
+  </ul>
+#else
+  <em><p>Oops! We can't seem to find that Squad.</p></em>
+#end
+
+<a href="/squads/$squad.getId()/heroes/new">Add a new hero</a>
+<a href="/squads">All squads</a>
