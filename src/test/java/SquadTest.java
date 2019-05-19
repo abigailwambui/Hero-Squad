@@ -30,4 +30,10 @@ public class SquadTest {
         assertEquals(true, Squad.all().contains(firstSquad));
         assertEquals(true, Squad.all().contains(secondSquad));
     }
+     @Test 
+    public void clear_emptiesAllSquadsFromList_0() {
+        Squad squad = new Squad("PowerPuff Girls", "30", "Fight for Equality");
+        Squad.clear();
+        assertEquals(Squad.all().size(), 0);
+    }
 }
