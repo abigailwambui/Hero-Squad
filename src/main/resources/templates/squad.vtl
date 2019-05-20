@@ -2,7 +2,7 @@
 #if ($squad)
   <h1>$squad.getName() heroes:</h1>
   <ul>
-    #foreach($hero in $squad.getheroes())
+    #foreach($hero in $squad.getHeroes())
      <li><a href="/heroes/$hero.getId()">$hero.getName()</a></li>
     #end
   </ul>
