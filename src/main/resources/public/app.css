@@ -11,11 +11,16 @@
     color: white;
 }
 .squad{
-    background-color: papayawhip;
+    background-color: brown;
 }
 .navbar navbar-default{
     background-color: black;
 }
 body{
     background-image: url("../images/image4.jpg");
+    text-align: center;
+    color: white;
+}
+.well hover{
+
 }
