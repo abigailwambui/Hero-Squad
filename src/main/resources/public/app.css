@@ -1,5 +1,5 @@
 .index{
-    background-image: url("../images/image2.jpg");
+    background-color: papayawhip;
 }
 .jumbotron{
     background-color: brown;
@@ -8,7 +8,14 @@
 .well{
     background-color: brown;
     text-align: center;
+    color: white;
 }
 .squad{
-    background-image: url("../images/image3.jpg")
+    background-color: papayawhip;
+}
+.navbar navbar-default{
+    background-color: black;
+}
+body{
+    background-image: url("../images/image4.jpg");
 }
